@@ -11,19 +11,18 @@ jobs:
         name: unit- testing
         runs-on: ubuntu-latest
 
-    steps:
-        - name: checkout repository
-          uses: actions/checkout@v4
+        steps:
+            -   name: checkout repository
+                uses: actions/checkout@v4
+            -   name: setup node js v18
+                uses: actions/setup-node@v3
+                with:
+                    node-version: 18
 
-        - name: setup node js v18
-          uses: actions/setup-node@v3
-          with:
-            node-version: 18
+            -   name: Install Dependencies
+                run: npm install
 
-        - name: Install Dependencies
-          run: npm install
-
-        - name: Unit-Testing
-          run: npm test
+            -   name: Unit-Testing
+                run: npm test
 
 
